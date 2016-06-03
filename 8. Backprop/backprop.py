@@ -7,7 +7,7 @@ EPS = 10 ** (-2)
 
 
 def divide_data_set(data, target):
-    train_data = list()
+    test_data = list()
     learn_data = list()
 
     i = 0
@@ -21,14 +21,14 @@ def divide_data_set(data, target):
 
         else:
             x = randint(0, len(data) - 1)
-            train_data.append(data[x].tolist())
-            train_data[len(train_data) - 1].append(target[x])
+            test_data.append(data[x].tolist())
+            test_data[len(test_data) - 1].append(target[x])
             data = np.delete(data, x, 0)
             target = np.delete(target, x, 0)
 
         i += 1
 
-    return np.array(learn_data), np.array(train_data)
+    return np.array(learn_data), np.array(test_data)
 
 
 class Network:
